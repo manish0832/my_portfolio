@@ -1,0 +1,21 @@
+<!-- templates/resume.html -->
+{% extends "base.html" %}
+{% block title %}Resume - Manish Saini{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto text-center">
+  <h2 class="text-3xl font-bold mb-6">My Resume</h2>
+
+  <!-- Embedded PDF viewer -->
+  <div class="w-full h-[800px] border rounded-md shadow mb-6">
+    <iframe src="{{ url_for('static', filename='resume/Manish_Saini_Data_Analyst.pdf') }}"
+            width="100%" height="100%" class="rounded-md"></iframe>
+  </div>
+
+  <!-- Download button -->
+  <a href="{{ url_for('static', filename='resume/Manish_Saini_Data_Analyst.pdf') }}" download
+     class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition">
+    Download Resume (PDF)
+  </a>
+</section>
+{% endblock %}

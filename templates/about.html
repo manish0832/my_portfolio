@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}About - Manish Saini{% endblock %}
+
+{% block head %}
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      background-image: url(' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5cg-Zyo2EN9ISwiXCiAaFDa5jmuSuIFqQkJZiH9qnKVxaN4x7odSBNMdwYJEdcamKFKg&usqp=CAU');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<section class="min-h-screen flex items-center justify-center px-4 py-12">
+  <div class="max-w-4xl w-full glass animate__animated animate__fadeInUp">
+
+    <!-- Profile Section -->
+    <div class="flex flex-col md:flex-row items-center mb-10 animate__animated animate__fadeInLeft">
+      <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile"
+           class="w-36 h-36 rounded-full border-4 border-blue-600 shadow-lg mb-4 md:mb-0 md:mr-6">
+      <div>
+        <h2 class="text-3xl font-bold text-blue-900 mb-2">About Me</h2>
+        <p class="text-gray-800 leading-relaxed">
+          I'm <strong>Manish Saini</strong>, a passionate Data Science student currently pursuing B.Tech in Computer Science from Bhartiya Institute of Engineering and Technology, Sikar.
+          I specialize in Python, AI/ML, and building data-driven web applications with Flask.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="mb-10 animate__animated animate__fadeInRight">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-800">Skills</h3>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-700">
+        <li>Python</li>
+        <li>SQL</li>
+        <li>Flask</li>
+        <li>HTML/CSS</li>
+        <li>NumPy</li>
+        <li>Pandas</li>
+        <li>Matplotlib</li>
+        <li>Scikit-learn</li>
+        <li>Seaborn</li>
+        <li>Web Scraping</li>
+        <li>API Integration</li>
+        <li>Git/GitHub</li>
+      </ul>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="animate__animated animate__fadeInUp">
+      <h3 class="text-2xl font-semibold mb-3 text-green-700">Experience</h3>
+      <div class="space-y-4 text-gray-700">
+        <div>
+          <strong>Data Science Trainee</strong> – Grras Solutions, Jaipur  
+          <p class="text-sm">Mar 2025 – Present</p>
+          <p>Worked on Python, SQL, ML projects, and APIs. Delivered weekly insights and dashboards.</p>
+        </div>
+        <div>
+          <strong>AI/ML Intern</strong> – Pedestal Techno World, Jaipur  
+          <p class="text-sm">May 2024 – June 2024</p>
+          <p>Built basic AI/ML models, preprocessed datasets, and contributed to real-world case studies.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

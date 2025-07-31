@@ -1,0 +1,37 @@
+<!-- templates/contact.html -->
+{% extends "base.html" %}
+{% block title %}Contact - Manish Saini{% endblock %}
+
+{% block content %}
+<section class="max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-8">Contact Me</h2>
+
+  <!-- Contact Info -->
+  <div class="grid md:grid-cols-2 gap-8 mb-10">
+    <div>
+      <h3 class="text-xl font-semibold mb-2">Email</h3>
+      <p><a href="mailto:manishchanwara0832@gmail.com" class="text-blue-600 hover:underline">manishchanwara0832@gmail.com</a></p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2">Phone</h3>
+      <p><a href="tel:+919057054834" class="text-blue-600 hover:underline">+91 9057054834</a></p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2">LinkedIn</h3>
+      <p><a href="https://www.linkedin.com/in/manish-saini-8627a0314" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/manish-saini</a></p>
+
+      <h3 class="text-xl font-semibold mt-6 mb-2">GitHub</h3>
+      <p><a href="https://github.com/manish0832" target="_blank" class="text-blue-600 hover:underline">github.com/manish0832</a></p>
+    </div>
+
+    <!-- Contact Form -->
+    <div>
+      <h3 class="text-xl font-semibold mb-3">Send a Message</h3>
+      <form action="mailto:manishchanwara0832@gmail.com" method="POST" enctype="text/plain" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 border rounded-md">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 border rounded-md">
+        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-2 border rounded-md"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition">Send</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
