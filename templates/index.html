@@ -1,25 +1,88 @@
-<!-- templates/index.html -->
 {% extends "base.html" %}
 {% block title %}Home - Manish Saini{% endblock %}
 
-{% block content %}
-<section class="flex flex-col items-center justify-center text-center py-20">
-  <!-- Profile Image -->
-  <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Manish Saini" class="w-40 h-40 rounded-full border-4 border-blue-500 shadow-md mb-6">
+{% block head %}
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+{% endblock %}
 
-  <!-- Name -->
-  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black-900 leading-tight mb-4">
+{% block content %}
+<!-- Hero Section -->
+<section class="flex flex-col items-center justify-center text-center py-20 bg-white">
+  <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Manish Saini"
+       class="w-40 h-40 rounded-full border-4 border-blue-500 shadow-md mb-6 animate__animated animate__fadeInDown">
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black leading-tight mb-4">
     Hi, I'm <span class="text-blue-600">Manish Saini</span>
   </h1>
-
-  <!-- Title -->
   <p class="text-xl sm:text-2xl text-gray-600 mb-6">
     Aspiring Data Scientist • Python Developer • AI/ML Enthusiast
   </p>
+  <div class="space-x-4">
+    <a href="#projects" class="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">
+      View Projects
+    </a>
+    <a href="#about" class="px-6 py-3 bg-gray-800 text-white text-lg font-semibold rounded-full shadow hover:bg-gray-900 transition duration-300">
+      Learn About Me
+    </a>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <a href="{{ url_for('projects_page') }}" class="mt-4 px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">
-    View My Projects
-  </a>
+<!-- About Me Section -->
+<section id="about" class="px-4 py-16 bg-gradient-to-br from-white to-blue-50">
+  <div class="max-w-5xl mx-auto glass animate__animated animate__fadeInUp p-6 rounded-2xl shadow-xl bg-white bg-opacity-70 backdrop-blur-md">
+    <div class="flex flex-col md:flex-row items-center mb-10">
+      <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile"
+           class="w-32 h-32 rounded-full border-4 border-blue-600 shadow-lg mb-4 md:mb-0 md:mr-6">
+      <div>
+        <h2 class="text-3xl font-bold text-blue-900 mb-2">About Me</h2>
+        <p class="text-gray-800 leading-relaxed">
+          I'm <strong>Manish Saini</strong>, a passionate Data Science student currently pursuing B.Tech in Computer Science from Bhartiya Institute of Engineering and Technology, Sikar. I specialize in Python, AI/ML, and building data-driven web applications with Flask.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="mb-10">
+      <h3 class="text-2xl font-semibold mb-3 text-purple-800">Skills</h3>
+      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-700">
+        <li>Python</li><li>SQL</li><li>Flask</li><li>HTML/CSS</li><li>NumPy</li><li>Pandas</li>
+        <li>Matplotlib</li><li>Scikit-learn</li><li>Seaborn</li><li>Web Scraping</li>
+        <li>API Integration</li><li>Git/GitHub</li>
+      </ul>
+    </div>
+
+    <!-- Experience Section -->
+    <div>
+      <h3 class="text-2xl font-semibold mb-3 text-green-700">Experience</h3>
+      <div class="space-y-4 text-gray-700">
+        <div>
+          <strong>Data Science Trainee</strong> – Grras Solutions, Jaipur  
+          <p class="text-sm">Mar 2025 – Present</p>
+          <p>Worked on Python, SQL, ML projects, and APIs. Delivered weekly insights and dashboards.</p>
+        </div>
+        <div>
+          <strong>AI/ML Intern</strong> – Pedestal Techno World, Jaipur  
+          <p class="text-sm">May 2024 – June 2024</p>
+          <p>Built basic AI/ML models, preprocessed datasets, and contributed to real-world case studies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Placeholder for Projects Section -->
+<section id="projects" class="px-4 py-16 bg-white">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-blue-800 mb-6">Projects</h2>
+    <p class="text-gray-700">Explore all my recent projects below!</p>
+    <a href="{{ url_for('projects_page') }}" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition duration-300">
+      Go to Projects Page
+    </a>
+  </div>
 </section>
 {% endblock %}
