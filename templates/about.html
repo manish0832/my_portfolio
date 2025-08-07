@@ -2,79 +2,111 @@
 {% block title %}About - Manish Saini{% endblock %}
 
 {% block head %}
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <style>
-    body {
-      background-image: url(' https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5cg-Zyo2EN9ISwiXCiAaFDa5jmuSuIFqQkJZiH9qnKVxaN4x7odSBNMdwYJEdcamKFKg&usqp=CAU');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
+<!-- Animate.css for entrance animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    .glass {
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    }
-  </style>
+<style>
+  body {
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    margin: 0;
+    padding: 0;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .glass {
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(30, 60, 120, 0.8));
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-<section class="min-h-screen flex items-center justify-center px-4 py-12">
-  <div class="max-w-4xl w-full glass animate__animated animate__fadeInUp">
+<main class="w-full overflow-x-hidden">
+  <section class="w-full min-h-screen px-4 py-12 flex justify-center">
+    <div class="max-w-5xl w-full glass animate__animated animate__fadeIn">
 
-    <!-- Profile Section -->
-    <div class="flex flex-col md:flex-row items-center mb-10 animate__animated animate__fadeInLeft">
-      <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile"
-           class="w-36 h-36 rounded-full border-4 border-blue-600 shadow-lg mb-4 md:mb-0 md:mr-6">
-      <div>
-        <h2 class="text-3xl font-bold text-blue-900 mb-2">About Me</h2>
-        <p class="text-gray-800 leading-relaxed">
-          I'm <strong>Manish Saini</strong>, a passionate Data Science student currently pursuing B.Tech in Computer Science from Bhartiya Institute of Engineering and Technology, Sikar.
-          I specialize in Python, AI/ML, and building data-driven web applications with Flask.
-        </p>
-      </div>
-    </div>
-
-    <!-- Skills Section -->
-    <div class="mb-10 animate__animated animate__fadeInRight">
-      <h3 class="text-2xl font-semibold mb-3 text-purple-800">Skills</h3>
-      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-700">
-        <li>Python</li>
-        <li>SQL</li>
-        <li>Flask</li>
-        <li>HTML/CSS</li>
-        <li>NumPy</li>
-        <li>Pandas</li>
-        <li>Matplotlib</li>
-        <li>Scikit-learn</li>
-        <li>Seaborn</li>
-        <li>Web Scraping</li>
-        <li>API Integration</li>
-        <li>Git/GitHub</li>
-      </ul>
-    </div>
-
-    <!-- Experience Section -->
-    <div class="animate__animated animate__fadeInUp">
-      <h3 class="text-2xl font-semibold mb-3 text-green-700">Experience</h3>
-      <div class="space-y-4 text-gray-700">
+      <!-- Profile Section -->
+      <div class="flex flex-col md:flex-row items-center gap-6 mb-10">
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Manish Saini Profile Picture"
+             class="w-36 h-36 rounded-full border-4 border-blue-600 shadow-xl animate-pulse">
         <div>
-          <strong>Data Science Trainee</strong> – Grras Solutions, Jaipur  
-          <p class="text-sm">Mar 2025 – Present</p>
-          <p>Worked on Python, SQL, ML projects, and APIs. Delivered weekly insights and dashboards.</p>
-        </div>
-        <div>
-          <strong>AI/ML Intern</strong> – Pedestal Techno World, Jaipur  
-          <p class="text-sm">May 2024 – June 2024</p>
-          <p>Built basic AI/ML models, preprocessed datasets, and contributed to real-world case studies.</p>
+          <h1 class="text-4xl font-bold text-white mb-2 transition duration-500 hover:scale-105">Know About Me</h1>
+          <p class="text-white leading-relaxed text-lg">
+            Hi, I'm <strong>Manish Saini</strong>, a dedicated and self-driven Computer Science student from Rajasthan,
+            currently pursuing my B.Tech at Bhartiya Institute of Engineering and Technology, Sikar. I specialize in
+            Python development, with a strong foundation in Flask, SQL, Web Development, and Data Analysis.
+          </p>
+          <p class="text-white leading-relaxed mt-2 text-lg">
+            Over the past year, I’ve worked on hands-on projects like an AI-powered Resume Analyzer, Jarvis Voice Assistant,
+            Weather App, and a Library Management System — solving real-world problems through clean and efficient code.
+          </p>
+          <p class="text-white leading-relaxed mt-2 text-lg">
+            I’m currently undergoing Data Science and AI training at Grras Solutions Pvt. Ltd., where I’m learning
+            advanced Machine Learning, Pandas, Scikit-learn, and visualization tools like Matplotlib and Seaborn.
+          </p>
+          <p class="text-white leading-relaxed mt-2 text-lg">
+            I love continuous learning and collaboration. My career goal is to become a <strong>Data Scientist</strong>,
+            leveraging data to build innovative, intelligent solutions.
+          </p>
         </div>
       </div>
-    </div>
 
-  </div>
-</section>
+      <!-- Skills Section -->
+      <div class="mb-10">
+        <h2 class="text-3xl font-semibold mb-5 text-purple-400 animate__animated animate__fadeInLeft">Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+          {% set skills = [
+            ("Python", "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"),
+            ("SQL", "https://cdn-icons-png.flaticon.com/512/4248/4248443.png"),
+            ("Flask", "https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg"),
+            ("HTML/CSS", "https://cdn-icons-png.flaticon.com/512/732/732212.png"),
+            ("NumPy", "https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg"),
+            ("Pandas", "https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg"),
+            ("Matplotlib", "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg"),
+            ("Scikit-learn", "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"),
+            ("Seaborn", "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg"),
+            ("Web Scraping", "https://cdn-icons-png.flaticon.com/512/1006/1006771.png"),
+            ("API Integration", "https://cdn-icons-png.flaticon.com/512/4248/4248440.png"),
+            ("Git/GitHub", "https://cdn-icons-png.flaticon.com/512/25/25231.png")
+          ] %}
+          {% for name, icon in skills %}
+          <div class="flex flex-col items-center text-center p-3 bg-white bg-opacity-20 rounded-xl shadow-md transform transition hover:scale-105 hover:shadow-xl animate__animated animate__fadeInUp">
+            <img src="{{ icon }}" alt="{{ name }} icon" class="w-12 h-12 mb-2 animate-bounce">
+            <span class="text-white font-medium">{{ name }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="space-y-6">
+        <h2 class="text-3xl font-semibold mb-3 text-green-300 animate__animated animate__fadeInRight">Experience</h2>
+
+        <div class="bg-white bg-opacity-20 rounded-lg p-6 shadow-lg transition transform hover:scale-105 animate__animated animate__fadeInUp">
+          <strong class="text-lg text-blue-300">Data Science Trainee</strong> – <span class="text-white">Grras Solutions, Jaipur</span>  
+          <p class="text-sm text-gray-300">Mar 2025 – Present</p>
+          <p class="text-white mt-1">Worked on Python, SQL, ML projects, and APIs. Delivered weekly insights and dashboards.</p>
+        </div>
+
+        <div class="bg-white bg-opacity-20 rounded-lg p-6 shadow-lg transition transform hover:scale-105 animate__animated animate__fadeInUp">
+          <strong class="text-lg text-blue-300">AI/ML Intern</strong> – <span class="text-white">Pedestal Techno World, Jaipur</span>  
+          <p class="text-sm text-gray-300">May 2024 – June 2024</p>
+          <p class="text-white mt-1">Built basic AI/ML models, preprocessed datasets, and contributed to real-world case studies.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
 {% endblock %}

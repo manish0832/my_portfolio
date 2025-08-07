@@ -8,22 +8,69 @@
   html {
     scroll-behavior: smooth;
   }
+
+  body {
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    margin: 0;
+    padding: 0;
+  }
+
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .glass {
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(30, 60, 120, 0.8));
+    backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.3);
+    color: white !important;
+  }
+
+  .glass p,
+  .glass h1,
+  .glass h2,
+  .glass h3,
+  .glass span,
+  .glass strong,
+  .glass li {
+    color: white !important;
+  }
+
+  .skill-card {
+    @apply flex flex-col items-center justify-center p-4 rounded-full shadow-lg transition-transform transform bg-gray-800 hover:scale-105 hover:rotate-1;
+  }
+
+  .skill-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 9999px;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+    border: 2px solid #4f46e5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 </style>
 {% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
-<section class="flex flex-col items-center justify-center text-center py-20 bg-white">
+<section class="flex flex-col items-center justify-center text-center py-20">
   <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Manish Saini"
        class="w-40 h-40 rounded-full border-4 border-blue-500 shadow-md mb-6 animate__animated animate__fadeInDown">
-  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black leading-tight mb-4">
-    Hi, I'm <span class="text-blue-600">Manish Saini</span>
+  <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+    Hi, I'm <span class="text-blue-400">Manish Saini</span>
   </h1>
-  <p class="text-xl sm:text-2xl text-gray-600 mb-6">
+  <p class="text-xl sm:text-2xl text-white mb-6">
     Aspiring Data Scientist • Python Developer • AI/ML Enthusiast
   </p>
   <div class="space-x-4">
-    <a href="#projects" class="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">
+    <a href="{{ url_for('projects_page') }}" class="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">
       View Projects
     </a>
     <a href="#about" class="px-6 py-3 bg-gray-800 text-white text-lg font-semibold rounded-full shadow hover:bg-gray-900 transition duration-300">
@@ -33,33 +80,65 @@
 </section>
 
 <!-- About Me Section -->
-<section id="about" class="px-4 py-16 bg-gradient-to-br from-white to-blue-50">
-  <div class="max-w-5xl mx-auto glass animate__animated animate__fadeInUp p-6 rounded-2xl shadow-xl bg-white bg-opacity-70 backdrop-blur-md">
+<section id="about" class="px-4 py-16">
+  <div class="max-w-5xl mx-auto glass animate__animated animate__fadeInUp">
     <div class="flex flex-col md:flex-row items-center mb-10">
       <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile"
            class="w-32 h-32 rounded-full border-4 border-blue-600 shadow-lg mb-4 md:mb-0 md:mr-6">
       <div>
-        <h2 class="text-3xl font-bold text-blue-900 mb-2">About Me</h2>
-        <p class="text-gray-800 leading-relaxed">
-          I'm <strong>Manish Saini</strong>, a passionate Data Science student currently pursuing B.Tech in Computer Science from Bhartiya Institute of Engineering and Technology, Sikar. I specialize in Python, AI/ML, and building data-driven web applications with Flask.
+        <h2 class="text-3xl font-bold mb-2">About Me</h2>
+        <p class="leading-relaxed">
+          I'm <strong>Manish Saini</strong>, a dedicated and self-driven Computer Science student from Rajasthan,
+          currently pursuing my B.Tech at Bhartiya Institute of Engineering and Technology, Sikar. I specialize in
+          Python development, with a strong foundation in Flask, SQL, Web Development, and Data Analysis.
+        </p>
+        <p class="leading-relaxed mt-2">
+          Over the past year, I’ve worked on hands-on projects like an AI-powered Resume Analyzer, Jarvis Voice Assistant,
+          Weather App, and a Library Management System — solving real-world problems through clean and efficient code.
+        </p>
+        <p class="leading-relaxed mt-2">
+          I’m currently undergoing Data Science and AI training at Grras Solutions Pvt. Ltd., where I’m learning
+          advanced Machine Learning, Pandas, Scikit-learn, and visualization tools like Matplotlib and Seaborn.
+        </p>
+        <p class="leading-relaxed mt-2">
+          I love continuous learning and collaboration. My career goal is to become a <strong>Data Scientist</strong>,
+          leveraging data to build innovative, intelligent solutions.
         </p>
       </div>
     </div>
 
     <!-- Skills Section -->
     <div class="mb-10">
-      <h3 class="text-2xl font-semibold mb-3 text-purple-800">Skills</h3>
-      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-700">
-        <li>Python</li><li>SQL</li><li>Flask</li><li>HTML/CSS</li><li>NumPy</li><li>Pandas</li>
-        <li>Matplotlib</li><li>Scikit-learn</li><li>Seaborn</li><li>Web Scraping</li>
-        <li>API Integration</li><li>Git/GitHub</li>
-      </ul>
+      <h3 class="text-2xl font-semibold mb-3 text-purple-300">Skills</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        {% set skills = [
+          ('Python', 'https://img.icons8.com/color/48/000000/python.png'),
+          ('SQL', 'https://img.icons8.com/color/48/000000/sql.png'),
+          ('Flask', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg3Tfo57E2ubS2PW7fqaza33uCCIdPhpdzzg&s'),
+          ('HTML/CSS', 'https://img.icons8.com/color/48/000000/html-5--v1.png'),
+          ('NumPy', 'https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg'),
+          ('Pandas', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNyAPXEFlKyaz6hnfAOyWRf9xIbeUnKOoYLN99Ww6uDK6vb4dv0HeVmgl-WGva9e4jp54&usqp=CAU'),
+          ('Matplotlib', 'https://matplotlib.org/_static/images/logo2.svg'),
+          ('Scikit-learn', 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg'),
+          ('Seaborn', 'https://seaborn.pydata.org/_static/logo-wide-lightbg.svg'),
+          ('Web Scraping', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZVuI5UW_UKrcEZHpRcCDSh6Zhm_yBBz4-UA&s'),
+          ('API Integration', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDnI1djcJsST4fHpJCFNSmXDX-vg5HZ4qOA&s'),
+          ('Git/GitHub', 'https://img.icons8.com/ios-glyphs/50/000000/github.png')
+        ] %}
+
+        {% for skill, icon in skills %}
+        <div class="skill-card">
+          <img src="{{ icon }}" alt="{{ skill }} logo">
+          <span class="text-white mt-2">{{ skill }}</span>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
     <!-- Experience Section -->
     <div>
-      <h3 class="text-2xl font-semibold mb-3 text-green-700">Experience</h3>
-      <div class="space-y-4 text-gray-700">
+      <h3 class="text-2xl font-semibold mb-3 text-green-300">Experience</h3>
+      <div class="space-y-4">
         <div>
           <strong>Data Science Trainee</strong> – Grras Solutions, Jaipur  
           <p class="text-sm">Mar 2025 – Present</p>
@@ -75,14 +154,23 @@
   </div>
 </section>
 
-<!-- Placeholder for Projects Section -->
-<section id="projects" class="px-4 py-16 bg-white">
-  <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-blue-800 mb-6">Projects</h2>
-    <p class="text-gray-700">Explore all my recent projects below!</p>
-    <a href="{{ url_for('projects_page') }}" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition duration-300">
-      Go to Projects Page
+<!-- Find Me On Section -->
+    
+<div class="text-center mt-10">
+  <h2 class="text-3xl font-semibold text-white mb-4">Find Me On</h2>
+  <h2 class="text-2xl font-semibold text-white mb-4">Feel free to connect with me</h2>
+  
+  <div class="flex justify-center space-x-6">
+    <a href="https://github.com/manish0832" target="_blank">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzgINM0sHk37IgIHQXRdj25k0wDLRpg9i4Og&s" alt="GitHub" class="w-10 h-10 rounded-full hover:scale-110 transition-transform duration-300">
+    </a>
+    <a href="https://www.linkedin.com/in/manish-saini-8627a0314" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="w-10 h-10 rounded-full hover:scale-110 transition-transform duration-300">
     </a>
   </div>
-</section>
+</div>
+<br/>
+
+<br/>
+<br/>
 {% endblock %}
