@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block head %}{% endblock %}
 </head>
-<body>
+<body class="no-js">
+  <script>
+    document.body.classList.remove("no-js");
+    document.body.classList.add("js-ready");
+  </script>
   <div class="page-shell">
     <div class="grid-overlay"></div>
     <div class="ambient ambient-one"></div>
@@ -27,12 +31,12 @@
         </span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation" data-nav-toggle>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-navigation" data-nav-toggle>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="site-nav" data-nav-menu>
+      <nav class="site-nav" id="site-navigation" data-nav-menu>
         <a href="{{ url_for('home') }}">Home</a>
         <a href="{{ url_for('about') }}">About</a>
         <a href="{{ url_for('projects_page') }}">Projects</a>

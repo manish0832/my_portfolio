@@ -15,7 +15,9 @@
   --radius: 30px;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -25,6 +27,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   font-family: "Manrope", sans-serif;
   color: var(--text);
   background:
@@ -48,7 +51,8 @@ a {
   text-decoration: none;
 }
 
-img {
+img,
+iframe {
   display: block;
   max-width: 100%;
 }
@@ -144,6 +148,12 @@ img {
 .brand-copy {
   display: grid;
   gap: 2px;
+  min-width: 0;
+}
+
+.brand-copy strong,
+.brand-copy small {
+  overflow-wrap: anywhere;
 }
 
 .brand-copy strong {
@@ -192,6 +202,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 10px;
+  color: inherit;
 }
 
 .nav-toggle span {
@@ -210,7 +221,7 @@ main {
 
 .panel {
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   border-radius: var(--radius);
   padding: 36px;
   background:
@@ -235,7 +246,8 @@ main {
 
 .hero h1,
 .panel h1,
-.panel h2 {
+.panel h2,
+.panel h3 {
   font-family: "Space Grotesk", sans-serif;
   margin: 0 0 12px;
   line-height: 0.98;
@@ -254,6 +266,10 @@ main {
   font-size: clamp(1.8rem, 3vw, 2.7rem);
 }
 
+.panel h3 {
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+}
+
 .eyebrow,
 .project-category,
 .timeline-period {
@@ -267,13 +283,19 @@ main {
 .hero-text,
 .lead-copy,
 .support-copy,
+.status-copy,
 .panel p {
   color: var(--muted);
   line-height: 1.76;
 }
 
 .hero-copy,
-.hero-card-content {
+.hero-card-content,
+.section-heading,
+.project-toolbar,
+.contact-form,
+.resume-frame,
+.mobile-resume-note {
   position: relative;
   z-index: 1;
 }
@@ -286,6 +308,10 @@ main {
 }
 
 .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
   border: 1px solid transparent;
   border-radius: 999px;
   padding: 13px 20px;
@@ -330,7 +356,8 @@ main {
 .project-card,
 .feature-card,
 .info-card,
-.skill-group-card {
+.skill-group-card,
+.mobile-resume-note {
   position: relative;
   z-index: 1;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -398,6 +425,10 @@ main {
 .service-chip,
 .contact-list a,
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
   padding: 10px 14px;
   border-radius: 999px;
   color: var(--text);
@@ -412,8 +443,6 @@ main {
 }
 
 .section-heading {
-  position: relative;
-  z-index: 1;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -431,17 +460,18 @@ main {
 
 .feature-card,
 .info-card,
-.skill-group-card {
+.skill-group-card,
+.mobile-resume-note {
   padding: 22px;
   border-radius: 24px;
 }
 
 .feature-card h3,
 .info-card h3,
-.skill-group-card h3 {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.5;
+.skill-group-card h3,
+.mobile-resume-note h3 {
+  margin-bottom: 10px;
+  line-height: 1.35;
 }
 
 .info-stack,
@@ -472,6 +502,10 @@ main {
 
 .project-impact {
   margin: 18px 0;
+}
+
+.status-copy {
+  margin: 0 0 20px;
 }
 
 .accent-sunset::before,
@@ -510,6 +544,7 @@ main {
   border-radius: 20px;
   font-weight: 600;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .timeline {
@@ -529,19 +564,18 @@ main {
 
 .project-toolbar,
 .contact-form {
-  position: relative;
-  z-index: 1;
   display: grid;
   gap: 14px;
 }
 
 .project-toolbar {
   grid-template-columns: 1.4fr 0.8fr;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .field {
   width: 100%;
+  min-width: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.04);
   border-radius: 18px;
@@ -563,8 +597,6 @@ main {
 }
 
 .resume-frame {
-  position: relative;
-  z-index: 1;
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -577,6 +609,11 @@ main {
   height: 780px;
   border: 0;
   background: #fff;
+}
+
+.mobile-resume-note {
+  display: none;
+  margin-top: 18px;
 }
 
 .flash-stack {
@@ -622,13 +659,18 @@ main {
   color: var(--muted);
 }
 
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+.no-js [data-reveal] {
+  opacity: 1;
+  transform: none;
 }
 
-[data-reveal].is-visible {
+.js-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.js-ready [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -636,6 +678,21 @@ main {
 @keyframes drift {
   0%, 100% { transform: translate3d(0, 0, 0); }
   50% { transform: translate3d(20px, -26px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (max-width: 1040px) {
@@ -671,11 +728,19 @@ main {
     background-size: 30px 30px;
   }
 
+  .ambient {
+    opacity: 0.28;
+  }
+
   .site-header {
     flex-wrap: wrap;
     padding: 14px 16px;
     gap: 14px;
     margin-bottom: 18px;
+  }
+
+  .brand-mark {
+    max-width: calc(100% - 64px);
   }
 
   .brand-copy strong {
@@ -688,6 +753,7 @@ main {
 
   .nav-toggle {
     display: block;
+    margin-left: auto;
   }
 
   .site-nav {
@@ -719,7 +785,7 @@ main {
   }
 
   .hero h1 {
-    font-size: clamp(2.5rem, 13vw, 3.85rem);
+    font-size: clamp(2.35rem, 12vw, 3.7rem);
   }
 
   .hero-actions,
@@ -734,7 +800,6 @@ main {
   .footer-links a,
   .tag-row span {
     width: 100%;
-    justify-content: center;
     text-align: center;
   }
 
@@ -747,13 +812,23 @@ main {
   .info-card,
   .skill-group-card,
   .timeline-item,
-  .stat-card {
+  .stat-card,
+  .mobile-resume-note {
     padding: 18px;
     min-height: unset;
   }
 
+  .feature-grid {
+    gap: 12px;
+  }
+
+  .skill-grid,
+  .skill-grid-compact {
+    grid-template-columns: 1fr;
+  }
+
   .project-toolbar {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
   }
 
   .field {
@@ -762,8 +837,12 @@ main {
 
   .resume-frame,
   .resume-frame iframe {
-    min-height: 520px;
-    height: 520px;
+    min-height: 460px;
+    height: 460px;
+  }
+
+  .mobile-resume-note {
+    display: block;
   }
 
   .site-footer {
@@ -778,6 +857,7 @@ main {
 
   .site-header {
     top: 8px;
+    border-radius: 20px;
   }
 
   .panel {
@@ -797,7 +877,18 @@ main {
 
   .resume-frame,
   .resume-frame iframe {
-    min-height: 420px;
-    height: 420px;
+    min-height: 320px;
+    height: 320px;
+  }
+
+  .hero-card-content,
+  .stat-card,
+  .project-card,
+  .feature-card,
+  .info-card,
+  .skill-group-card,
+  .timeline-item {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

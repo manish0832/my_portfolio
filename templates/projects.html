@@ -21,6 +21,8 @@
     </select>
   </div>
 
+  <p id="project-status" class="status-copy" aria-live="polite">Showing all projects.</p>
+
   <div id="project-results" class="project-grid">
     {% for project in projects %}
       <article class="project-card accent-{{ project.accent }}">

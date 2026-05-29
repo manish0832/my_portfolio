@@ -19,6 +19,11 @@
     <iframe src="{{ url_for('static', filename=profile.resume_file) }}" title="Resume preview"></iframe>
   </div>
 
+  <div class="mobile-resume-note">
+    <h3>Mobile-friendly resume access</h3>
+    <p>Embedded PDF viewers can be unreliable on some phones. If the preview feels cramped, use the download button for the best reading experience.</p>
+  </div>
+
   <div class="hero-actions">
     <a class="button button-primary" href="{{ url_for('static', filename=profile.resume_file) }}" download>Download Resume</a>
     <a class="button button-secondary" href="{{ url_for('projects_page') }}">See Projects</a>
