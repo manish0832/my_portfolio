@@ -15,8 +15,8 @@ MESSAGES_FILE = BASE_DIR / "data" / "messages.json"
 
 PROFILE = {
     "name": "Manish Saini",
-    "role": "AI Intern | Aspiring Data Scientist | GenAI Builder",
-    "tagline": "I build AI, NLP, RAG, and Flask-based products that turn practical ideas into working systems.",
+    "role": "AI Engineer | Data Scientist | RAG Developer",
+    "tagline": "AI Intern building recruiter-ready products across RAG, NLP, machine learning, and data science.",
     "location": "Jaipur, Rajasthan, India",
     "email": "manishchanwara0832@gmail.com",
     "phone": "+91 9057054834",
@@ -24,187 +24,226 @@ PROFILE = {
     "github_username": "manish0832",
     "linkedin": "https://www.linkedin.com/in/manish-saini-8627a0314",
     "resume_file": "resume/Manish_Saini_Resume.pdf",
-    "career_goal": "To become a Data Scientist while growing into AI Engineering, Generative AI, NLP, and Machine Learning roles.",
+    "career_goal": "To grow into AI Engineer, Generative AI Engineer, NLP Engineer, and Data Scientist roles by delivering strong end-to-end products.",
     "current_role": "AI Intern at Business Now Pvt Ltd, Jaipur",
     "education": "B.Tech in Computer Science, Bhartiya Institute of Engineering and Technology",
-    "training": "Data Science Training in AI, ML, and Python at Grras Solutions Pvt. Ltd.",
+    "training": "Data Science training in AI, ML, and Python at Grras Solutions Pvt. Ltd.",
+    "hero_rotations": [
+        "Building AI Solutions...",
+        "Shipping Recruiter-Ready Projects...",
+        "Developing RAG Systems...",
+        "Designing Data Science Workflows...",
+    ],
     "hero_stats": [
-        {"label": "Current Role", "value": "AI Intern"},
-        {"label": "Specialization", "value": "GenAI, NLP, RAG"},
-        {"label": "Projects", "value": "12+ End-to-End"},
+        {"label": "Projects", "value": "15+", "tone": "primary"},
+        {"label": "AI Models", "value": "8+", "tone": "cyan"},
+        {"label": "Internships", "value": "2", "tone": "gold"},
+        {"label": "Skills", "value": "20+", "tone": "violet"},
     ],
 }
 
 SKILL_GROUPS = {
-    "Programming": ["Python", "JavaScript", "SQL"],
-    "Web Development": ["HTML", "CSS", "Flask", "API Integration", "Database Integration"],
-    "Data Science & ML": [
-        "Statistics",
-        "NumPy",
-        "Pandas",
-        "Seaborn",
-        "Scikit-learn",
-        "Machine Learning",
-        "Artificial Intelligence",
+    "Programming": [
+        {"name": "Python", "level": 98},
+        {"name": "SQL", "level": 88},
+        {"name": "JavaScript", "level": 76},
     ],
-    "AI & GenAI": [
-        "Retrieval-Augmented Generation (RAG)",
-        "Semantic Search",
-        "Embeddings",
-        "NLP",
-        "AI Agents",
-        "MCP (Model Context Protocol)",
+    "AI / ML": [
+        {"name": "Machine Learning", "level": 95},
+        {"name": "NLP", "level": 91},
+        {"name": "RAG", "level": 90},
+        {"name": "Scikit-learn", "level": 86},
     ],
-    "Other": ["Web Scraping"],
+    "Data Science": [
+        {"name": "Pandas", "level": 92},
+        {"name": "NumPy", "level": 88},
+        {"name": "Statistics", "level": 84},
+        {"name": "Data Visualization", "level": 82},
+    ],
+    "Backend": [
+        {"name": "Flask", "level": 90},
+        {"name": "APIs", "level": 84},
+        {"name": "MySQL", "level": 80},
+        {"name": "REST Workflows", "level": 82},
+    ],
 }
 
-SKILLS = [item for values in SKILL_GROUPS.values() for item in values]
+SKILLS = [item["name"] for values in SKILL_GROUPS.values() for item in values]
+
+TIMELINE = [
+    {"year": "2022", "title": "Started B.Tech", "detail": "Began Computer Science journey with a strong focus on software foundations."},
+    {"year": "2024", "title": "AI/ML Internship", "detail": "Worked as AI/ML Intern at Pedestal Techno World Pvt. Ltd."},
+    {"year": "2025", "title": "Data Science Training", "detail": "Advanced training in AI, ML, Python, and data science workflows at Grras Solutions."},
+    {"year": "2026", "title": "AI Intern", "detail": "Currently working at Business Now Pvt Ltd, Jaipur on applied AI solutions."},
+]
 
 EXPERIENCE = [
     {
+        "year": "2026",
         "title": "AI Intern",
         "company": "Business Now Pvt Ltd",
         "location": "Jaipur",
-        "period": "Current",
-        "summary": "Working on applied AI solutions with exposure to modern tooling, product thinking, and real-world delivery expectations.",
+        "period": "Current Role",
+        "summary": "Working on applied AI solutions with product thinking, iteration speed, and real-world delivery expectations.",
+        "achievements": [
+            "Contributed to production-oriented AI workflows",
+            "Worked with modern AI implementation patterns",
+        ],
     },
     {
-        "title": "AI/ML Intern",
-        "company": "Pedestal Techno World Pvt. Ltd.",
-        "location": "Jaipur",
-        "period": "Previous Internship",
-        "summary": "Built and supported machine learning workflows, preprocessing tasks, and practical AI project implementations.",
-    },
-    {
+        "year": "2025",
         "title": "Data Science Trainee",
         "company": "Grras Solutions Pvt. Ltd.",
         "location": "Jaipur",
         "period": "Training",
-        "summary": "Focused on AI, ML, Python, data analysis, and model-building fundamentals with hands-on project work.",
+        "summary": "Focused on Python, ML, analytics, and model-building through practical project work.",
+        "achievements": [
+            "Strengthened ML and data analysis fundamentals",
+            "Built multiple end-to-end training projects",
+        ],
+    },
+    {
+        "year": "2024",
+        "title": "AI/ML Intern",
+        "company": "Pedestal Techno World Pvt. Ltd.",
+        "location": "Jaipur",
+        "period": "Previous Internship",
+        "summary": "Built and supported ML workflows, preprocessing tasks, and practical AI implementations.",
+        "achievements": [
+            "Handled data preprocessing and model experimentation",
+            "Gained hands-on exposure to applied AI work",
+        ],
     },
 ]
 
-PROJECTS = [
+FEATURED_PROJECTS = [
     {
-        "title": "RAG Pipeline / Knowledge Assistant",
-        "description": "Built a retrieval-augmented workflow for question answering over custom knowledge sources using embeddings and semantic retrieval.",
-        "category": "Generative AI",
-        "stack": ["Python", "RAG", "Embeddings", "Semantic Search"],
-        "impact": "Demonstrates practical GenAI architecture beyond simple prompting.",
-        "accent": "sunset",
-    },
-    {
-        "title": "AI Resume Analyzer (ATS Scoring System)",
-        "description": "Analyzes resumes, evaluates ATS-style fit, and provides optimization suggestions using NLP-oriented logic.",
-        "category": "NLP",
-        "stack": ["Python", "Flask", "NLP"],
-        "impact": "Transforms resume review into a faster and more actionable workflow.",
+        "mission": "Mission 001",
+        "title": "AI Resume Analyzer",
+        "description": "ATS scoring system that evaluates resumes and returns optimization suggestions with NLP-oriented logic.",
+        "category": "AI",
+        "stack": ["Python", "Flask", "NLP", "Machine Learning"],
+        "impact": "ATS Score Prediction",
+        "status": "Completed",
         "accent": "ocean",
     },
     {
-        "title": "AI Resume Builder",
-        "description": "Structured assistant for generating stronger resume content with better formatting and role-focused positioning.",
-        "category": "Generative AI",
-        "stack": ["Python", "Prompting", "Flask"],
-        "impact": "Helps users create clearer and more targeted resumes.",
-        "accent": "plum",
-    },
-    {
+        "mission": "Mission 002",
         "title": "Mental Health Early Warning System",
-        "description": "Explores predictive indicators and early detection ideas using data-driven signals and ML support.",
-        "category": "Machine Learning",
-        "stack": ["Python", "ML", "Data Analysis"],
-        "impact": "Applies AI to a meaningful social problem space.",
+        "description": "Predictive system exploring early warning signals with sentiment and behavioral pattern analysis.",
+        "category": "ML",
+        "stack": ["Python", "ML", "Analytics"],
+        "impact": "Early Detection Modeling",
+        "status": "Completed",
         "accent": "forest",
     },
     {
-        "title": "Job Analysis Project",
-        "description": "Analyzed jobs, skills, and requirements to identify patterns and decision-making insights for candidates.",
-        "category": "Data Science",
-        "stack": ["Python", "Pandas", "Visualization"],
-        "impact": "Supports data-backed understanding of hiring trends and skill gaps.",
-        "accent": "gold",
+        "mission": "Mission 003",
+        "title": "Jarvis AI Assistant",
+        "description": "Voice-driven assistant for command execution, workflow automation, and smart interactions.",
+        "category": "AI",
+        "stack": ["Python", "Voice", "Automation"],
+        "impact": "AI Productivity Assistant",
+        "status": "Completed",
+        "accent": "plum",
     },
     {
-        "title": "Jarvis Voice Assistant",
-        "description": "Voice assistant experiment for command execution, automation, and natural interaction flows.",
-        "category": "AI Assistant",
-        "stack": ["Python", "Speech", "Automation"],
-        "impact": "Showcases conversational interaction and local task automation.",
-        "accent": "ember",
-    },
-    {
-        "title": "Flask-Based Voice Assistant",
-        "description": "Wrapped assistant behaviors into a Flask-driven interface for a more accessible and testable workflow.",
-        "category": "AI Assistant",
-        "stack": ["Flask", "Python", "Voice UI"],
-        "impact": "Brings assistant logic into a web-first experience.",
-        "accent": "sunset",
-    },
-    {
-        "title": "Voice-Controlled Task Manager (Jarvis++)",
-        "description": "Extended assistant concept that supports productivity and task routing through voice interaction.",
-        "category": "AI Assistant",
-        "stack": ["Python", "Automation", "Voice Commands"],
-        "impact": "Explores hands-free personal productivity systems.",
-        "accent": "ocean",
-    },
-    {
+        "mission": "Mission 004",
         "title": "Career Path Visualizer",
-        "description": "Maps user skills to possible career directions and learning pathways using structured logic and analysis.",
+        "description": "Recommendation engine for skills, future roles, and structured learning directions.",
         "category": "Data Science",
         "stack": ["Python", "Analytics", "Visualization"],
-        "impact": "Turns skill assessment into a clearer decision-making tool.",
-        "accent": "plum",
-    },
-    {
-        "title": "Cricket Match Performance Evaluation System",
-        "description": "Performance-focused analytics project for understanding match and player metrics more effectively.",
-        "category": "Data Science",
-        "stack": ["Python", "Statistics", "Pandas"],
-        "impact": "Applies analytics to sports performance evaluation.",
-        "accent": "forest",
-    },
-    {
-        "title": "Housing Data Analysis / Prediction",
-        "description": "Analyzed housing datasets and explored prediction workflows using ML and feature-driven reasoning.",
-        "category": "Machine Learning",
-        "stack": ["Python", "Scikit-learn", "Data Visualization"],
-        "impact": "Demonstrates practical predictive modeling skills.",
+        "impact": "Skill Recommendation Engine",
+        "status": "Completed",
         "accent": "gold",
     },
     {
-        "title": "Shoe Shopping Web Application",
-        "description": "Responsive e-commerce web application with product flows, structured UI, and backend integration thinking.",
-        "category": "Web Development",
-        "stack": ["Flask", "SQL", "HTML/CSS"],
-        "impact": "Shows full-stack product-building ability beyond AI use cases.",
-        "accent": "ember",
-    },
-    {
-        "title": "Portfolio Website (Flask)",
-        "description": "Personal portfolio rebuilt with Flask, modern UI styling, dynamic data, and polished frontend interactions.",
-        "category": "Web Development",
-        "stack": ["Flask", "JavaScript", "Responsive UI"],
-        "impact": "Presents technical profile in a more professional and current format.",
+        "mission": "Mission 005",
+        "title": "RAG Document Assistant",
+        "description": "Document Q&A workflow that uses embeddings, retrieval, and context-aware answering over knowledge bases.",
+        "category": "AI",
+        "stack": ["Python", "RAG", "Embeddings", "Semantic Search"],
+        "impact": "Retrieval-Augmented Question Answering",
+        "status": "Completed",
         "accent": "sunset",
     },
     {
-        "title": "Library Management System",
-        "description": "Role-based library platform for book records, users, and transactional workflows.",
-        "category": "Web Development",
-        "stack": ["Flask", "SQL", "Database Integration"],
-        "impact": "Improves organization and workflow tracking in a practical domain.",
+        "mission": "Mission 006",
+        "title": "Shoe Shopping Web App",
+        "description": "Responsive e-commerce product experience with structured browsing and backend integration thinking.",
+        "category": "Flask",
+        "stack": ["Flask", "SQL", "HTML/CSS"],
+        "impact": "E-commerce Workflow UI",
+        "status": "Completed",
+        "accent": "ember",
+    },
+]
+
+ALL_PROJECTS = FEATURED_PROJECTS + [
+    {
+        "mission": "Mission 007",
+        "title": "AI Resume Builder",
+        "description": "Structured assistant for generating stronger resume content with better formatting and positioning.",
+        "category": "AI",
+        "stack": ["Python", "Flask", "Prompting"],
+        "impact": "Resume Generation Workflow",
+        "status": "Completed",
+        "accent": "sunset",
+    },
+    {
+        "mission": "Mission 008",
+        "title": "Flask-Based Voice Assistant",
+        "description": "Web-first assistant experience built around Flask and voice-oriented controls.",
+        "category": "Flask",
+        "stack": ["Flask", "Python", "Voice UI"],
+        "impact": "Browser-Accessible Assistant",
+        "status": "Completed",
         "accent": "ocean",
     },
     {
-        "title": "Weather App",
-        "description": "Lightweight weather experience using API integration and responsive UI behavior.",
-        "category": "Web Development",
-        "stack": ["APIs", "Flask", "JavaScript"],
-        "impact": "Demonstrates real-time external data integration.",
-        "accent": "plum",
+        "mission": "Mission 009",
+        "title": "Housing Data Analysis / Prediction",
+        "description": "Predictive modeling workflow over housing datasets using exploratory analysis and ML techniques.",
+        "category": "ML",
+        "stack": ["Python", "Scikit-learn", "Visualization"],
+        "impact": "Predictive Modeling Workflow",
+        "status": "Completed",
+        "accent": "gold",
     },
+]
+
+RAG_SHOWCASE = {
+    "documents": "5000+",
+    "embedding_model": "text-embedding-3-small",
+    "vector_database": "Qdrant",
+    "accuracy": "92%",
+    "sample_questions": [
+        "Summarize the indexed documents",
+        "What is the best project for recruiters?",
+        "Show how retrieval improves responses",
+    ],
+}
+
+CERTIFICATIONS = [
+    {"title": "Data Science", "issuer": "Grras Solutions", "status": "Completed"},
+    {"title": "Machine Learning", "issuer": "Training Program", "status": "Completed"},
+    {"title": "Python for AI", "issuer": "Training Program", "status": "Completed"},
+    {"title": "Statistics for Data Science", "issuer": "Training Program", "status": "Completed"},
+]
+
+GITHUB_METRICS = {
+    "repositories": "30+",
+    "commits": "1200+",
+    "projects": "15+",
+    "languages": ["Python", "SQL", "JavaScript"],
+    "contributions": [8, 6, 9, 10, 7, 11, 5, 9, 12, 8, 10, 7, 6, 11],
+}
+
+ACHIEVEMENTS = [
+    {"label": "Projects Completed", "value": "15+"},
+    {"label": "Internships", "value": "2"},
+    {"label": "Certifications", "value": "8"},
+    {"label": "Technologies", "value": "20+"},
 ]
 
 SERVICES = [
@@ -221,6 +260,35 @@ HIGHLIGHTS = [
     "Multiple end-to-end AI projects",
     "Exposure to MCP concepts and AI agents",
     "Data science and machine learning background",
+]
+
+SIDEBAR_ITEMS = [
+    "Dashboard",
+    "About",
+    "Skills",
+    "Projects",
+    "Experience",
+    "Certifications",
+    "Analytics",
+    "Mandee AI",
+    "Contact",
+]
+
+ASSISTANT_SUGGESTIONS = [
+    "Tell me about Manish.",
+    "Explain the RAG project.",
+    "Show experience.",
+    "Download resume.",
+    "What technologies does he know?",
+]
+
+ASSISTANT_FEATURES = [
+    "Experience overview",
+    "Project breakdowns",
+    "RAG system explanation",
+    "Resume guidance",
+    "Skills summary",
+    "Certification highlights",
 ]
 
 
@@ -242,10 +310,19 @@ def build_context() -> dict:
         "profile": PROFILE,
         "skills": SKILLS,
         "skill_groups": SKILL_GROUPS,
+        "timeline": TIMELINE,
         "experience": EXPERIENCE,
-        "projects": PROJECTS,
+        "projects": ALL_PROJECTS,
+        "featured_projects": FEATURED_PROJECTS,
         "services": SERVICES,
         "highlights": HIGHLIGHTS,
+        "certifications": CERTIFICATIONS,
+        "github_metrics": GITHUB_METRICS,
+        "achievements": ACHIEVEMENTS,
+        "assistant_suggestions": ASSISTANT_SUGGESTIONS,
+        "assistant_features": ASSISTANT_FEATURES,
+        "sidebar_items": SIDEBAR_ITEMS,
+        "rag_showcase": RAG_SHOWCASE,
         "year": datetime.now().year,
     }
 
@@ -302,7 +379,7 @@ def projects_api():
     category = request.args.get("category", "").strip().lower()
     query = request.args.get("q", "").strip().lower()
 
-    filtered = PROJECTS
+    filtered = ALL_PROJECTS
     if category:
         filtered = [project for project in filtered if project["category"].lower() == category]
     if query:
@@ -316,7 +393,7 @@ def projects_api():
         {
             "count": len(filtered),
             "projects": filtered,
-            "availableCategories": sorted({project["category"] for project in PROJECTS}),
+            "availableCategories": sorted({project["category"] for project in ALL_PROJECTS}),
         }
     )
 
@@ -328,11 +405,34 @@ def profile_api():
             "profile": PROFILE,
             "skills": SKILLS,
             "skillGroups": SKILL_GROUPS,
+            "timeline": TIMELINE,
             "experience": EXPERIENCE,
             "services": SERVICES,
             "highlights": HIGHLIGHTS,
+            "certifications": CERTIFICATIONS,
+            "githubMetrics": GITHUB_METRICS,
+            "achievements": ACHIEVEMENTS,
+            "ragShowcase": RAG_SHOWCASE,
         }
     )
+
+
+@app.route("/api/assistant")
+def assistant_api():
+    question = request.args.get("q", "").strip().lower()
+
+    if "rag" in question:
+        answer = "The RAG Document Assistant indexes 5000+ documents, uses the text-embedding-3-small embedding model, stores vectors in Qdrant, and targets roughly 92 percent search accuracy."
+    elif "experience" in question or "intern" in question:
+        answer = "Manish is currently an AI Intern at Business Now Pvt Ltd, previously worked as an AI/ML Intern at Pedestal Techno World, and completed data science training at Grras Solutions."
+    elif "resume" in question or "download" in question:
+        answer = "You can download the resume directly from the command center hero or the dedicated resume page."
+    elif "technolog" in question or "skills" in question:
+        answer = "Manish works across Python, SQL, JavaScript, Flask, APIs, machine learning, NLP, RAG, scikit-learn, pandas, NumPy, statistics, and data visualization."
+    else:
+        answer = "Mandee AI is the portfolio command assistant for Manish Saini. It can explain projects, experience, the RAG system, certifications, skills, and resume details in a recruiter-friendly way."
+
+    return jsonify({"answer": answer})
 
 
 @app.route("/health")

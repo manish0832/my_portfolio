@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 {% block title %}About | {{ profile.name }}{% endblock %}
 
 {% block content %}
@@ -54,7 +54,7 @@
         <h3>{{ group }}</h3>
         <div class="skill-grid skill-grid-compact">
           {% for skill in items %}
-            <div class="skill-tile">{{ skill }}</div>
+            <div class="skill-tile">{{ skill.name }}</div>
           {% endfor %}
         </div>
       </div>
